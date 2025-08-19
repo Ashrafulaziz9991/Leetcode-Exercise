@@ -1,3 +1,5 @@
+/*
+
 #include <bits/stdc++.h>
 using namespace std;
 int main()
@@ -26,3 +28,20 @@ int main()
     cout<< X;
     return 0;
 }
+*/
+
+class Solution {
+public:
+    int reverse(int x) {
+        long long num = 0;
+        // integer to integer Reversing formate
+        while(x != 0){
+            int digit = x % 10;
+            num = num*10 + digit;
+            x = x / 10;
+        }
+        if(num < INT_MIN || num > INT_MAX)
+            return 0;
+        return (int)num; // convert lon long to integer
+    }
+};
