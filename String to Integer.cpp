@@ -150,6 +150,12 @@ int main(void)
             i++;
         s = s.substr(i);
     }
+
+    if (!isdigit(s[0]) && s[0] != '+' && s[0] != '-' && s[0] != ' ' && s[0] != '.')
+    {
+        cout << 0 << endl;
+        return 0;
+    }
         
     if (s[0] == '-' || s[0] == '+')
     {
