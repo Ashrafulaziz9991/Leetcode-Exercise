@@ -131,61 +131,6 @@ int main()
 
 #include <bits/stdc++.h>
 using namespace std;
-/*
-int main()
-{
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    string s, str;
-    cin >> s;
-    if (!isdigit(s[0]) && s[0] != '+' && s[0] != '-' && s[0] != ' ' && s[0] != '.'){
-        cout << 0 << endl;
-        return 0;
-    }
-    else
-    {
-        if (s[0] == ' ')
-        {
-            int i = 0;
-            while (s[i] == ' ')
-                i++;
-            s = s.substr(i);
-        }
-
-        else if (s[0] == '+' || s[0] == '-')
-        {
-            str += s[0];
-            for (int i = 1; i < s.size(); i++)
-            {
-                // if (!isdigit(s[i]))
-                //     continue;
-                if (isdigit(s[i]))
-                    str.push_back(s[i]);
-                else
-                    break;
-            }
-        }
-        else if (isdigit(s[0]))
-        {
-            for (int i = 0; i < s.size(); i++)
-            {
-                // if (!isdigit(s[i]))
-                //     continue;
-                if (isdigit(s[i]))
-                    str.push_back(s[i]);
-                else
-                    break;
-            }
-        }
-    }
-    int y;
-    stringstream ss(str);
-    ss >> y;
-    cout << y << endl;
-    return 0;
-}
-*/
-
 int main(void)
 {
 
