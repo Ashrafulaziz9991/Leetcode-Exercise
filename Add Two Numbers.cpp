@@ -1,19 +1,12 @@
 // problem link : https://leetcode.com/problems/add-two-numbers/description/
 
+
+/*
 #include <bits/stdc++.h>
 #define nll NULL
 using namespace std;
 
-//   Definition for singly-linked list.
-//   struct ListNode {
-//       int val;
-//       ListNode *next;
-//       ListNode() : val(0), next(nullptr) {}
-//       ListNode(int x) : val(x), next(nullptr) {}
-//       ListNode(int x, ListNode *next) : val(x), next(next) {}
-//   };
-
-vector<int>s, s2;
+vector<int>s, s2, s3;
 string str = "", str2 = "";
 
 class node {
@@ -53,16 +46,16 @@ public:
         head = Newnode;
     }
 
-    void insert_tail(int value){
-        auto Newnode = new node(value);
-        if(head == nll){
-            head = Newnode;
-            tail = Newnode;
-            return;
-        }
-        tail->next = Newnode;
-        tail = Newnode;
-    }
+    // void inserthead(int value){
+    //     auto Newnode = new node(value);
+    //     if(head == nll){
+    //         head = Newnode;
+    //         tail = Newnode;
+    //         return;
+    //     }
+    //     tail->next = Newnode;
+    //     tail = Newnode;
+    // }
 
     void print(){
         auto a = head;
@@ -95,26 +88,20 @@ int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
 
-    listt h;
+    listt h, k;
 
-    h.inserthead(7);
-    h.inserthead(6);
-    h.inserthead(8);
-    h.inserthead(6);
+    //  l1 = [2,4,3], l2 = [5,6,4]
     h.inserthead(3);
+    h.inserthead(4);
     h.inserthead(2);
-    h.inserthead(9);
 
     h.print();
 
     listt j;
 
-    j.insert_tail(5);
-    j.insert_tail(4);
-    j.insert_tail(55);
-    j.insert_tail(53);
-    j.insert_tail(7);
-    j.inserthead(1);
+    j.inserthead(4);
+    j.inserthead(6);
+    j.inserthead(5);
 
     j.print();
 
@@ -140,46 +127,48 @@ int main() {
         b = b->next;
     }
 
-    // cout << s << endl;
-
-    // for(auto val : s){
-    //     cout << val << " ";
-    //     // str.push_back(val);
-    //     str += val;
-    // }
-    // cout << s2 << endl;
-
-    // cout << endl;
+    reverse(s.begin(), s.end());
+    reverse(s2.begin(), s2.end());
 
     for(auto val : s2){
         cout << val << " ";
-        // str2.push_back(val);
-        // str2 += val;
     }
 
     int num = 0, num2 = 0;
 
+    // convert vector to integer
     for (int d : s)
-    {
         num = num * 10 + d;
-    }
 
     for (int d : s2)
-    {
         num2 = num2 * 10 + d;
-    }
-    
+
     cout << num << endl;
     cout << num2 << endl;
+    int num3 = num + num2;
+    cout << num3 << endl;
+    while (num3 > 0)
+    {
+        int temp = num3 % 10;
+        s3.push_back(temp);
+        num3 /= 10;
+    }
 
-    // cout << str << endl;
-    // cout << str2 << endl;
+    for(int i : s3) cout << i <<" ";
+
+    reverse(s.begin(), s.end());
+
+    cout << endl;
+    for(int i : s3)
+        k.inserthead(i);
+
+    k.print();
     
     return 0;
 }
+*/
 
 
-/*
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -196,7 +185,7 @@ struct ListNode {
 int main() {
     // Step 1️⃣: Create nodes
 
-    string s1, s2;
+    vector<int> v1, v2;
 
     ListNode* node3 = new ListNode(3);
     ListNode* node2 = new ListNode(2, node3);
@@ -210,26 +199,13 @@ int main() {
     
 
     // Step 3️⃣: Print the linked list
-    cout << "Linked List: ";
+    cout << "Linked List: 1 :";
     
     while (curr != nullptr) {
-        // cout << curr->val << " ";
-        // s1.push_back(curr->val);
+        v1.push_back(curr->val);
         curr = curr->next;
     }
     cout << endl;
-
-    curr = head;
-
-    s1.push_back(head);
-
-    // Step 4️⃣: Free memory (optional but good practice)
-    // curr = head;
-    // while (curr != nullptr) {
-    //     ListNode* temp = curr;
-    //     curr = curr->next;
-    //     delete temp;
-    // }
 
     auto n1 = new ListNode(8);
     auto n2 = new ListNode(6, n1);
@@ -237,15 +213,11 @@ int main() {
     auto n4 = new ListNode(9, n3);
 
     auto nx = n4;
-
-    s2.push_back(nx);
-
     auto curr2 = nx;
 
     while (curr2 != nullptr)
     {
-        // cout << curr2->val << " ";
-        s2.push_back(curr2->val);
+        v2.push_back(curr2->val);
         curr2 = curr2->next;
     }
 
@@ -257,10 +229,10 @@ int main() {
         delete temp;
     }
 
-    cout << s1 <<endl;
-    cout << s2 <<endl;
+    for(int i : v1)cout << i <<endl;
+
+    cout << "Linked List: 2 :" << endl;
+    for(int i : v2)cout << i <<endl;
  
     return 0;
 }
-
-*/
