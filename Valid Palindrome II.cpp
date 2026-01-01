@@ -75,7 +75,6 @@ bool is_palindrome(string s, int left, int right) {
         return true; // Already a palindrome
 
 */
-
 // problem link : https://leetcode.com/problems/valid-palindrome-ii/
 
 class Solution {
