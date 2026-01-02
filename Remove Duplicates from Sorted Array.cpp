@@ -40,7 +40,6 @@ public:
                 counter++;
             }
         }
-
         return counter;
     }
 };
