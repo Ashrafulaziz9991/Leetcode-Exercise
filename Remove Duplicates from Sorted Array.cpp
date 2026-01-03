@@ -43,3 +43,30 @@ public:
         return counter;
     }
 };
+
+// solution : 2 (remove duplicate elements from array / vector) solving way through Builtin function
+// for sorted order
+
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        auto it = unique(nums.begin(), nums.end());
+        nums.erase(it, nums.end());
+        return nums.size();
+    }
+};
+
+
+
+// solution : 3 (remove duplicate elements from array / vector) solving way through Builtin function
+// for sorted order / unsorted order
+class Solution
+{
+public:
+    int removeDuplicates(vector<int> &nums)
+    {
+        set<int> uniqueSet(nums.begin(), nums.end());
+        nums.assign(uniqueSet.begin(), uniqueSet.end());
+        return nums.size();
+    }
+};
