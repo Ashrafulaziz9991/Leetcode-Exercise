@@ -129,6 +129,53 @@ int main()
 
 // problem link : https://leetcode.com/problems/string-to-integer-atoi/description/
 
+class Solution {
+public:
+    int myAtoi(string s) {
+        string str;
+        // cin >> s;
+
+        if (!isdigit(s[0]) && s[0] != '+' && s[0] != '-' && s[0] != ' ' &&
+            s[0] != '.') {
+            return 0;
+        }
+
+        if (s[0] == ' ') {
+            int i = 0;
+            while (s[i] == ' ')
+                i++;
+            s = s.substr(i);
+        }
+
+        if (!isdigit(s[0]) && s[0] != '+' && s[0] != '-' && s[0] != ' ' && s[0] != '.')
+            return 0;
+
+        if (s[0] == '-' || s[0] == '+') {
+            str += s[0];
+            for (int i = 1; i < s.size(); i++) {
+                if (isdigit(s[i]))
+                    str.push_back(s[i]);
+                else
+                    break;
+            }
+        } else if (isdigit(s[0])) {
+            for (int i = 0; i < s.size(); i++) {
+                if (isdigit(s[i]))
+                    str.push_back(s[i]);
+                else
+                    break;
+            }
+        }
+
+        int y;
+        stringstream ss(str);
+        ss >> y;
+        return y;
+    }
+};
+
+
+/*
 #include <bits/stdc++.h>
 using namespace std;
 int main(void)
@@ -184,6 +231,8 @@ int main(void)
     ss >> y;
     cout << y <<endl;
 }
+
+*/
 
 /*
     -45435fs
