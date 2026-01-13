@@ -22,9 +22,22 @@ double nthRoot(double A, int n)
     return x;
 }
 
+bool isPowerOfK(int n, int k)
+{
+    if (n <= 0 || k <= 1) return false;
+
+    while (n % k == 0)
+        n /= k;
+
+    return n == 1;
+}
+
+
 int main()
 {
     cout << "Square root of 25: " << nthRoot(25, 2) << endl;
     cout << "Cube root of 81: " << nthRoot(81, 2) << endl;
     cout << "4th root of 16: " << nthRoot(16, 2) << endl;
+
+    cout << isPowerOfK(4, 4) ;
 }
