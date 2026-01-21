@@ -2,6 +2,53 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+bool is_palindrome(string s, int left, int right)
+{
+    while (left < right)
+    {
+        if (s[left] != s[right])
+        {
+            return false;
+        }
+        left++;
+        right--;
+    }
+    return true;
+}
+
+string longestPalindrome(string s)
+{
+    int n = s.size();
+
+    for (int len = n; len >= 1; len--)
+    {
+        for (int i = 0; i + len - 1 < n; i++)
+        {
+            int j = i + len - 1;
+            if (is_palindrome(s, i, j))
+            {
+                return s.substr(i, len);
+            }
+        }
+    }
+    return "";
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    
+    string str, str2;
+    cin >> str;
+    str2 = longestPalindrome(str);
+    // str2 = longestSubstringPalindrome(str);
+    cout << str2;
+    // cout << str.substr(0, str.size() - 1);
+    return 0;
+}
+
+/*
 
 
 bool is_palindrome(string str){
@@ -22,19 +69,6 @@ string longestPalindrome(string s){
     else return right_cut;
 }
 
-bool is_palindrome(string s, int left, int right)
-{
-    while (left < right)
-    {
-        if (s[left] != s[right])
-        {
-            return false;
-        }
-        left++;
-        right--;
-    }
-    return true;
-}
 
 bool validPalindrome(string &s, string &result)
 {
@@ -54,50 +88,6 @@ bool validPalindrome(string &s, string &result)
     result = s;
     return true; // Already a palindrome
 }
-
-// bool isPalindrome(const string &s) {
-//     int i = 0, j = s.size() - 1;
-//     while(i < j) {
-//         if(s[i] != s[j]) return false;
-//         i++; j--;
-//     }
-//     return true;
-// }
-
-// string longestSubstringPalindrome(string s) {
-//     if(s.empty()) return "";
-
-//     // If whole string is a palindrome → return it immediately
-//     if(isPalindrome(s))
-//         return s;
-
-//     // Recursively try:
-//     // 1) Removing last character
-//     // 2) Removing first character
-//     string leftCut  = longestSubstringPalindrome(s.substr(0, s.size() - 1));
-//     string rightCut = longestSubstringPalindrome(s.substr(1));
-
-//     // Return the longer of the two results
-//     return (leftCut.size() > rightCut.size() ? leftCut : rightCut);
-// }
-
-
-int main()
-{
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    
-    string str, str2;
-    cin >> str;
-    str2 = longestPalindrome(str);
-    // str2 = longestSubstringPalindrome(str);
-    cout << str2;
-    // cout << str.substr(0, str.size() - 1);
-    return 0;
-}
-
-/*
-
 
 // function to check if a substring 
 // s[low..high] is a palindrome
@@ -244,3 +234,30 @@ string validPalindrome(const string& s) {
 //     return true;
 // }
 */
+
+
+class Solution {
+public:
+    bool is_palindrome(const string &s, int left, int right) {
+        while (left < right) {
+            if (s[left++] != s[right--]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    string longestPalindrome(string s) {
+        int n = s.size();
+
+        for (int len = n; len >= 1; len--) {         
+            for (int i = 0; i + len - 1 < n; i++) {   
+                int j = i + len - 1;
+                if (is_palindrome(s, i, j)) {
+                    return s.substr(i, len);         
+                }
+            }
+        }
+        return "";
+    }
+};
