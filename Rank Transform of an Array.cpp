@@ -2,8 +2,6 @@
  * problem link : https://leetcode.com/problems/rank-transform-of-an-array/description/
  * 
 
-
-
 #include <bits/stdc++.h>
 using namespace std;
 
