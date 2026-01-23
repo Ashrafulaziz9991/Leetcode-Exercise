@@ -185,11 +185,11 @@ struct ListNode {
 int main() {
     // Step 1️⃣: Create nodes
 
-    vector<int> v1, v2;
+    vector<int> v1, v2, v3;
 
     ListNode* node3 = new ListNode(3);
-    ListNode* node2 = new ListNode(2, node3);
-    ListNode* node1 = new ListNode(1, node2);
+    ListNode* node2 = new ListNode(4, node3);
+    ListNode* node1 = new ListNode(2, node2);
 
     // Step 2️⃣: Head points to first node
     ListNode* head = node1;
@@ -207,13 +207,12 @@ int main() {
     }
     cout << endl;
 
-    auto n1 = new ListNode(8);
+    auto n1 = new ListNode(4);
     auto n2 = new ListNode(6, n1);
-    auto n3 = new ListNode(8, n2);
-    auto n4 = new ListNode(9, n3);
+    auto n4 = new ListNode(5, n2);
 
-    auto nx = n4;
-    auto curr2 = nx;
+    auto head2 = n4;
+    auto curr2 = head2;
 
     while (curr2 != nullptr)
     {
@@ -221,7 +220,7 @@ int main() {
         curr2 = curr2->next;
     }
 
-    curr2 = nx;
+    curr2 = head2;
     while (curr2 != nullptr)
     {
         ListNode* temp = curr2;
@@ -229,10 +228,50 @@ int main() {
         delete temp;
     }
 
-    for(int i : v1)cout << i <<endl;
+    for(int i : v1)cout << i <<" ";
 
-    cout << "Linked List: 2 :" << endl;
-    for(int i : v2)cout << i <<endl;
+    cout << endl << "Linked List: 2 :" << endl;
+    for(int i : v2)cout << i <<" ";
+
+    reverse(v1.begin(), v1.end());
+    reverse(v2.begin(), v2.end());
+
+    int num = 0, num2 = 0;
+
+    for(int d : v1) num = num * 10 + d;
+    for(int d : v2) num2 = num2 * 10 + d;
+
+    cout << num <<endl;
+    cout << num2 <<endl;
+
+    int num3 = num + num2;
+
+    while (num3 > 0)
+    {
+        int temp = num3 % 10;
+        v3.push_back(temp);
+        num3 /= 10;
+    }
+    
+    for(int i : v3) cout<< i << " ";
+
+    // if(v3.empty()) return 0;
+
+    ListNode* head3 = new ListNode(v3[0]);
+    ListNode* curr3 = head3;
+    for(int i = 1; i < v3.size(); i++){
+        curr3->next = new ListNode(v3[i]);
+        curr3 = curr3->next;
+    }
+
+    ListNode *temp = head3;
+    while (temp != nullptr)
+    {
+        cout << temp->val << " ";
+        temp = temp->next;
+    }
+    cout << endl;
+
  
     return 0;
 }

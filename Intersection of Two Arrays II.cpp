@@ -85,6 +85,8 @@ int main()
 
 */
 
+// inserted same element with same counted
+
 class Solution {
 public:
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {

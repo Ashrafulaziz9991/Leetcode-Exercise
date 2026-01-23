@@ -38,10 +38,14 @@ int main()
 }
 */
 /*
+
+asuming n = size of array
+if n is odd
+median = arr[n/2]  // 0 based indexing
+if n is even
+median = (arr[(n-1)/2] + arr[n/2]) / 2.0
 8-1/2 = 3.5 ~ 3
 8 / 2 = 4
-
-
 */
 
 class Solution

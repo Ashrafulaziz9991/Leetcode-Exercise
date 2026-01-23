@@ -2,7 +2,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> twoSum(vector<int>& nums, int target) {
+vector<int> twoSum(vector<int>& nums, int target) 
+{
         vector<int> retvec;
         for(int i = 0; i<nums.size(); i++)
         {
@@ -17,8 +18,7 @@ vector<int> twoSum(vector<int>& nums, int target) {
             }
         }
         return retvec;
-    }
-
+}
 int main()
 {
     ios_base::sync_with_stdio(0);
