@@ -39,7 +39,6 @@ int main()
     cout << mn;
     return 0;
 }
-
 */
 
 class Solution {
