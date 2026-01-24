@@ -57,9 +57,6 @@ public:
         sort(nums.begin(), nums.end(), greater<int>());
         int big = nums[0], scd_big = nums[1], index;
         for (int i = 0; i < nums.size(); i++) {
-            if(scd_big == 0 && big == nums2[i]){
-                return i;
-            }
             if (big >= scd_big * 2 && big == nums2[i]) {
                 return i;
             }
