@@ -1,0 +1,16 @@
+// problem link : https://leetcode.com/problems/height-checker/
+
+
+class Solution {
+public:
+    int heightChecker(vector<int>& heights) {
+        vector<int>v = heights;
+        sort(heights.begin(), heights.end());
+        int counter = 0;
+        for(int i = 0; i < v.size(); i++){
+            if(v[i] != heights[i])
+                counter++;
+        }
+        return counter;
+    }
+};
