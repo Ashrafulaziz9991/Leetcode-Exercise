@@ -1,41 +1,87 @@
-// problem link : https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/?envType=problem-list-v2&envId=dynamic-programmin
+// problem link : https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+
+/**
 #include <bits/stdc++.h>
 using namespace std;
-
-int xyz(vector<int>week, int days){
-    int mx = INT_MAX;
-    int days = min(4, 5);
-}
-
 int main()
 {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-    
-    // vector<int>prices = {1,5,3,6,4};
-    // // vector<int>prices = {7,6,4,3,1};
-    // int mn = prices[0], marked_index = 0;
+    vector<int> prices = {7,6,4,3,1};
+    int mn = 0;
 
-    // // for(int i : stock)
-    // //     if(i < mn){
-    // //         mn = i;
-    // //         marked_index = *i;
-    // //     }
-    // // }{
-    
-    // for (size_t i = 0; i < prices.size(); i++)
+    // int j = 0;
+    // for (int i = 1; i < prices.size(); i++)
     // {
-    //     if(prices[i] > mn){
-    //         mn = prices[i];
-    //         marked_index = i;
-    //     }
+    //     int diff = prices[j] + prices[i];
+    //     cout << diff << " ";
+    //     mn = max(diff, mn);
+    //     j++;
     // }
-    // // int mx = *max_element(prices.begin()+ marked_index, prices.end());
-    // // cout << mn <<endl;
-    // // cout << mx - mn << endl;
 
-    // cout << mn << endl;
-    // cout << marked_index << endl;
-    
+    // cout <<  mn ;
+
+    int j = 0; // left pointer (buy)
+    int maxProfit = 0;
+
+    for (int i = 1; i < prices.size(); i++)
+    { // right pointer (sell)
+        if (prices[i] > prices[j])
+        {
+            maxProfit = max(maxProfit, prices[i] - prices[j]);
+        }
+        else
+        {
+            j = i; // Move j only when we find a lower price
+        }
+    }
+    cout << maxProfit;
     return 0;
 }
+
+*/
+
+
+/*
+
+7 6
+
+// it's when issue about finding tergeted sum using two pointers 
+int left = 0, right = n - 1;
+
+while (left < right) {
+    int sum = arr[left] + arr[right];
+
+    if (sum == target) {
+        // found answer
+        break;
+    }
+    else if (sum < target) {
+        left++;    // move ONE pointer
+    }
+    else {
+        right--;   // move ONE pointer
+    }
+}
+
+
+*/
+
+
+
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int j = 0;
+        int maxProfit = 0;
+
+        for (int i = 1; i < prices.size(); i++) {
+            if (prices[i] > prices[j]) {
+                maxProfit = max(maxProfit, prices[i] - prices[j]);
+            } else {
+                j = i;
+            }
+        }
+        return maxProfit;
+    }
+};
