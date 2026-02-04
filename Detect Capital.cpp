@@ -47,7 +47,7 @@ int main()
 
 */
 
-
+// solution : 1
 
 class Solution {
 public:
@@ -81,5 +81,21 @@ public:
     bool detectCapitalUse(string word) {
         return check_al_capital(word) || check_al_small(word) ||
                check_standard(word);
+    }
+};
+
+
+// solution : 2
+
+
+class Solution {
+public:
+    bool detectCapitalUse(string word) {
+        int upcount = 0;
+        for(char &c : word){
+            if(isupper(c))
+                upcount++;
+        }
+        return upcount == word.size() || upcount == 0 || upcount == 1 && isupper(word[0]);
     }
 };
