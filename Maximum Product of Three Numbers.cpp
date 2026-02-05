@@ -49,6 +49,8 @@ int main()
 
 
 
+// solution : 1 
+// time complexity O(n^2) or O(nlogn + n^2)
 class Solution {
 public:
     int maximumProduct(vector<int>& nums) {
@@ -64,5 +66,20 @@ public:
             }
         }
         return mx;
+    }
+};
+
+
+// solution : 2  
+// time complexity O(n log n)
+
+class Solution {
+public:
+    int maximumProduct(vector<int>& nums) {
+        int sz = nums.size();
+        sort(nums.begin(), nums.end(), greater<int>());
+        int part1 = nums[0] * nums[1] * nums[2];
+        int part2 = nums[0] * nums[sz - 1] * nums[sz - 2];
+        return max(part1, part2);
     }
 };
