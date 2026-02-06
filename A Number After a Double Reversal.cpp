@@ -1,5 +1,6 @@
 // problem link : https://leetcode.com/problems/a-number-after-a-double-reversal/
 
+// solution : 1
 
 class Solution {
 public:
@@ -20,5 +21,14 @@ public:
         int x = reverse(num);
         int y = reverse(x);
         return num == y;
+    }
+};
+
+// solution : 2
+
+class Solution {
+public:
+    bool isSameAfterReversals(int num) {
+        return num == 0 || num % 10 != 0;
     }
 };
