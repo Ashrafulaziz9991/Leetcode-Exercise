@@ -48,11 +48,6 @@ public:
         for (auto& i : mp) {
             st2.insert(i.second);
         }
-        for (auto& i : st)
-            cout << i << " ";
-        cout << endl;
-        for (auto& i : st2)
-            cout << i << " ";
         return st2.size() == st.size();
     }
 };
