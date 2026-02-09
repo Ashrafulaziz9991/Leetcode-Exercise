@@ -1,4 +1,6 @@
 /**
+ * 
+ * problem link : https://leetcode.com/problems/unique-morse-code-words/
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -93,10 +95,6 @@ public:
 
         string s = "zen", ans = "";
         set<string> st;
-        // for(auto &c : s){
-        //     ans += ump[c];
-        //     st.insert(ump[c]);
-        // }
 
         for (auto& word : words) {
             string x = word, str = "";
@@ -105,17 +103,6 @@ public:
             }
             st.insert(str);
         }
-
-        // for(auto i : st) cout << i << " ";
-        // cout << endl;
-
         return st.size();
     }
 };
-
-/**
- 
-
-]
-
- */
