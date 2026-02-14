@@ -1,91 +1,61 @@
 // problem link : https://leetcode.com/problems/group-anagrams/description/
 
+/**
 #include <bits/stdc++.h>
 using namespace std;
-
-vector<vector<string>> listt;
-vector<string> ls, ls2;
-
-string acsending_order(string &str){
-    sort(str.begin(), str.end());
-    return str;
-}
 
 int main()
 {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-    
-    string s = "tea";
-    set<string> st;
-    stack<string> anagrams;
-    // cin >> s;
-    sort(s.begin(), s.end());
+    vector<string> strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
+    map<string, vector<string>> groups;
 
-    cout << s << endl;
-
-    
-    // string s2;
-    // cin >> s2;
-
-    ls = {"eat","tea","tan","ate","nat","bat"};
-
-    for(auto i : ls) ls2.push_back(i);
-
-    // sort(s.begin(), s.end());
-    // sort(s2.begin(), s2.end());
-    // for(auto i : ls)
-    //     sort(i.begin(), i.end());
-    
-    for (size_t i = 0; i < ls.size(); i++)
+    // Group anagrams
+    for (const auto &word : strs)
     {
-        sort(ls[i].begin(), ls[i].end());
-        st.insert(ls[i]);
+        string sorted = word;
+        sort(sorted.begin(), sorted.end());
+        groups[sorted].push_back(word);
     }
 
-    map<string, int>ls2;
-
-    for(auto i : ls){
-        ls2[i]++;
-    }
-
-    // for (size_t i = 0; i < ls.size(); i++)
-    // {
-    //     ls2[ls[i]]++;
-    //     listt[i].push_back()
-    // }
-
-    for (size_t i = 0; i < ls.size(); i++)
+    // Convert map to vector
+    vector<vector<string>> result;
+    for (const auto &pair : groups)
     {
-        cout << ls[i] <<" : " << ls2[ls[i]] << endl;
+        result.push_back(pair.second);
     }
-    
-    // string arr[][] = {s, s2};
-    // let's check frst pattern 
-    // int n = 50;
-    // for (int i = 0; i < n; i++)
-    // // for (int i = n; i >=0; i--)
-    // {
-    //     for (int j = 0; j < n; j++)
-    //     // for (int j = n; j >= 0; j--)
-    //     {
-    //         cout <<"*" ;
-    //     }
-    //     cout << "\n";
-    // }
 
-    for(auto i : ls)
-        cout << i << " ";
-    
-    for(auto i : ls2){
-        for(auto j : st){
-            if(acsending_order(i) == j){
-                listt.push_back(i);
-            }
-        }
+    for(auto i : result){
+        for(auto j : i)
+            cout << j << " ";
+        cout << endl;
     }
-    cout << endl;
 
-    for(auto x : st) cout << x << " ";
     return 0;
 }
+
+*/
+
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        map<string, vector<string>> groups;
+
+        // Group anagrams
+        for (const auto &word : strs)
+        {
+            string sorted = word;
+            sort(sorted.begin(), sorted.end());
+            groups[sorted].push_back(word);
+        }
+
+        // Convert map to vector
+        vector<vector<string>> result;
+        for (const auto &i : groups)
+        {
+            result.push_back(i.second);
+        }
+        return result;
+    }
+};
