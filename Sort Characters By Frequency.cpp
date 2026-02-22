@@ -1,3 +1,7 @@
+/**
+ * problem link : https://leetcode.com/problems/sort-characters-by-frequency/description/
+ *
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -19,17 +23,30 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
 
-    string s = "tree";
+    string s = "cccaaa";
     unordered_map<char, int>ump;
 
-    for(char &c : s){
-        ump[c]++;
-    }
-    priority_queue<int>pq;
+    for(char &c : s) ump[c]++;
+    priority_queue<pair<int, char>>pq;
     for(auto i : ump){
-        pq.push()
-        cout << i.first << " " << i.second << endl;
+        pair<int, char>pi = {i.second, i.first};
+        pq.push(pi);
     }
+
+    string x = "";
+
+    while (!pq.empty())
+    {
+        int num = pq.top().first;
+        char alphabet = pq.top().second;
+        pq.pop();
+        // cout << pq.top().first << " " << pq.top().second << endl;
+        for(int i = 0; i < num; i++)
+            x += alphabet;
+        
+    }
+    cout << x;
+    
     
 
 
@@ -42,6 +59,34 @@ int main()
     // }
     
 
-    cout << s;
+    // cout << s;
     return 0;
 }
+
+*/
+
+class Solution {
+public:
+    string frequencySort(string s) {
+        unordered_map<char, int> ump;
+
+        for (char& c : s)
+            ump[c]++;
+        priority_queue<pair<int, char>> pq;
+        for (auto i : ump) {
+            pair<int, char> pi = {i.second, i.first};
+            pq.push(pi);
+        }
+
+        string x = "";
+
+        while (!pq.empty()) {
+            int num = pq.top().first;
+            char alphabet = pq.top().second;
+            pq.pop();
+            for (int i = 0; i < num; i++)
+                x += alphabet;
+        }
+        return x;
+    }
+};
