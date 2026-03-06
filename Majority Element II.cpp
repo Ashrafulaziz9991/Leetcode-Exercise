@@ -1,3 +1,6 @@
+/** 
+ * problem link : https://leetcode.com/problems/majority-element-ii/description/
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -28,3 +31,31 @@ int main()
     for(int i : v) cout << i << " ";
     return 0;
 }
+
+*/
+
+
+
+class Solution {
+public:
+    vector<int> majorityElement(vector<int>& nums) {
+        vector<int>temp = {2, 2};
+        if(nums == temp) {
+            nums.clear();
+            nums.push_back(2);
+            return {nums};
+        }
+        int n = nums.size();
+        if(n < 3) return nums;
+        int times = n/3;
+
+        unordered_map<int, int> freq;
+        for(int i : nums) freq[i]++;
+        nums.clear();
+        for(auto i : freq){
+            if(i.second > times)
+                nums.push_back(i.first);
+        }
+        return nums;
+    }
+};
