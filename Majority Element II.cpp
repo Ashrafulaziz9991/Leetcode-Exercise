@@ -39,14 +39,8 @@ int main()
 class Solution {
 public:
     vector<int> majorityElement(vector<int>& nums) {
-        vector<int>temp = {2, 2};
-        if(nums == temp) {
-            nums.clear();
-            nums.push_back(2);
-            return {nums};
-        }
         int n = nums.size();
-        if(n < 3) return nums;
+        if(n == 1) return nums;
         int times = n/3;
 
         unordered_map<int, int> freq;
