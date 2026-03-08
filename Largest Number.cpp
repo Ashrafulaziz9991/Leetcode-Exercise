@@ -61,7 +61,6 @@ public:
         auto it = [](const auto& a, const auto& b) {
             return (b + a) < (a + b);
         };
-
         sort(tmp.begin(), tmp.end(), it);
         if(tmp[0] == "0") return "0";
         for (auto i : tmp)
