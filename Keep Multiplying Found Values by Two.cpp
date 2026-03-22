@@ -27,7 +27,7 @@ int main()
 
 */
 
-
+// c++ part
 class Solution {
 public:
     int org(vector<int>& arr, int orginal) {
@@ -44,3 +44,17 @@ public:
         return org(nums, original);
     }
 };
+
+
+
+// c# part
+public class Solution {
+    public int FindFinalValue(int[] nums, int original) {
+        if (!nums.Contains(original))
+            return original;
+        original = original * 2;
+        if (nums.Contains(original))
+            return FindFinalValue(nums, original);
+        return original;
+    }
+}
