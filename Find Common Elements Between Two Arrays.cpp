@@ -31,7 +31,7 @@ int main()
 
 class Solution {
 public:
-    int common_element(vector<int>& v1, vector<int>& v2) {
+    int common_element(vector<int>& v1, vector<int>& v2){
         unordered_set<int> ust(v2.begin(), v2.end());
         int count = 0;
         for (int i : v1)
