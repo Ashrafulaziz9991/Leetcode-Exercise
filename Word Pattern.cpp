@@ -65,7 +65,6 @@ public:
         
         vector<string> words;
         stringstream ss(s);
-        
         while (ss >> word)
             words.push_back(word);
 
