@@ -35,9 +35,9 @@ public:
             if (matrix[row][col] == target)
                 return true;
             else if (matrix[row][col] < target)
-                row = row + 1;
+                row++;
             else
-                col = col - 1;
+                col--;
         }
         return false;
     }
