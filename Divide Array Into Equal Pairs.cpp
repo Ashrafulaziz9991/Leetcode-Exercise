@@ -33,6 +33,6 @@ public:
         for(int i : nums)
             if(freq[i] % 2 != 0)
                 return false;
-        return true;;
+        return true;
     }
 };
