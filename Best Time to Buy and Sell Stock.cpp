@@ -68,7 +68,6 @@ while (left < right) {
 */
 
 
-
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {

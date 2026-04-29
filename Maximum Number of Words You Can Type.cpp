@@ -5,6 +5,8 @@
  * if found then decrease each sz of vector and so on
  * finnaly return the vector size
  */
+
+/**
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -16,13 +18,10 @@ int main()
     string text = "hello world" , brokenLetters = "ad", word;
 
     int count = 0;
-
     vector<string>words;
     stringstream ss(text);
     while(ss >> word)
         words.push_back(word);
-
-    // for(auto w : words) cout << w << "\n";
 
     for(auto w : words){
         bool canType = true;
@@ -40,9 +39,30 @@ int main()
     
     return 0;
 }
+*/
 
-/**
- * next : https://leetcode.com/problems/find-the-difference-of-two-arrays/
- * 
- * 
- */
+class Solution {
+public:
+    int canBeTypedWords(string text, string brokenLetters) {
+        string word;
+        int count = 0;
+        vector<string> words;
+        stringstream ss(text);
+        while (ss >> word)
+            words.push_back(word);
+
+        for (auto w : words) {
+            bool canType = true;
+            for (char c : brokenLetters) {
+                if (find(w.begin(), w.end(), c) != w.end()) {
+                    canType = false;
+                    break;
+                }
+            }
+            if (canType)
+                count++;
+        }
+
+        return count;
+    }
+};

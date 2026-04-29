@@ -2,10 +2,11 @@
  *
  * this one tyoes of permutation & combination problem
  * here will be bitwise operation happened
- * problem link :
+ * problem link : https://leetcode.com/problems/subsets/
  *
  */
 
+/**
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -37,3 +38,21 @@ int main()
 
     return 0;
 }
+*/
+
+class Solution {
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+        int sz = nums.size();
+        vector<vector<int>> subset;
+
+        for (int i = 0; i < (1 << sz); i++) {
+            vector<int> temp;
+            for (int j = 0; j < sz; j++)
+                if (i & (1 << j))
+                    temp.push_back(nums[j]);
+            subset.push_back(temp);
+        }
+        return subset;
+    }
+};

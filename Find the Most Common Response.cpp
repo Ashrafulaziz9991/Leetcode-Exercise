@@ -1,5 +1,6 @@
 // problem link : https://leetcode.com/problems/find-the-most-common-response/description/
 
+/**
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -71,6 +72,7 @@ int main()
 
     return 0;
 }
+*/
 
 
 

@@ -1,5 +1,6 @@
 // link : https://leetcode.com/problems/find-the-difference-of-two-arrays/
 
+/**
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -103,3 +104,44 @@ int main()
     }
     return 0;
 }
+
+*/
+
+
+class Solution {
+public:
+    vector<vector<int>> findDifference(vector<int>& nums1, vector<int>& nums2) {
+        vector<vector<int>> ans;
+        vector<int> tmp;
+        set<int> st;
+        for (int i : nums1) {
+            if (find(nums2.begin(), nums2.end(), i) == nums2.end()) {
+                st.insert(i);
+            }
+        }
+
+        if (st.empty())
+            ans.push_back({});
+        else {
+            tmp.assign(st.begin(), st.end());
+            ans.push_back(tmp);
+        }
+
+        st.clear();
+        tmp.clear();
+
+        for (int i : nums2) {
+            if (find(nums1.begin(), nums1.end(), i) == nums1.end()) {
+                st.insert(i);
+            }
+        }
+
+        if (st.empty())
+            ans.push_back({});
+        else {
+            tmp.assign(st.begin(), st.end());
+            ans.push_back(tmp);
+        }
+        return ans;
+    }
+};
