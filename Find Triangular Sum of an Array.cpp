@@ -1,6 +1,7 @@
 // problem link : https://leetcode.com/problems/find-triangular-sum-of-an-array/
 
 
+// solution : 1
 class Solution {
 public:
     int digit_count(int n) {
@@ -31,4 +32,28 @@ public:
             return triangularSum(ans);
     }
     
+};
+
+
+// solution : 2
+
+class Solution {
+public:
+    int triangularSum(vector<int>& nums) {
+        vector<int> ans;
+        if (nums.size() == 1)
+            return nums[0];
+        for (int i = 0; i < nums.size() - 1; i++) {
+            int sum = 0;
+            sum = nums[i] + nums[i + 1];
+            if (sum > 9)
+                ans.push_back(sum % 10);
+            else
+                ans.push_back(sum);
+        }
+        if (ans.size() == 1)
+            return ans[0];
+        else
+            return triangularSum(ans);
+    }
 };
