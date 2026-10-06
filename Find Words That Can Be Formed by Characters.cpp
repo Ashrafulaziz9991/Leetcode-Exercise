@@ -1,5 +1,6 @@
 // problem link : https://leetcode.com/problems/find-words-that-can-be-formed-by-characters/description/
 
+/**
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -10,27 +11,7 @@ int main()
     vector<string> words = {"cat", "bt", "hat", "tree"};
     string chars = "atach", tst = "tree", ans = "";
 
-    // for (auto i : tst){
-    //     if (find(chars.begin(), chars.end(), i) == chars.end())
-    //     {
-    //         cout << "NO";
-    //         return 0;
-    //     }
-    // }
-
-
-    // for(auto i : words){
-    //     bool flag = false;
-    //     for(auto j : i){
-    //         if (find(chars.begin(), chars.end(), j) == chars.end())
-    //         {
-    //             flag = true;
-    //             break;;
-    //         }
-    //     }
-    //     if(!flag)
-    //         ans += i;
-    // }
+   
 
     vector<int>cnt(26, 0);
 
@@ -40,9 +21,32 @@ int main()
 
     for(int i : cnt) cout << i << " ";
 
-
-
     // cout << "YES";
     // cout << ans;
     return 0;
 }
+
+*/
+
+class Solution {
+public:
+    bool is_exist(string str, string a) {
+        for (char c : a) {
+            auto pos = str.find(c);
+            if (pos == string::npos)
+                return false;
+            str.erase(pos, 1);
+        }
+        return true;
+    }
+
+    int countCharacters(vector<string>& words, string chars) {
+        int sum = 0;
+
+        for (auto s : words) {
+            if (is_exist(chars, s))
+                sum += s.size();
+        }
+        return sum;
+    }
+};
