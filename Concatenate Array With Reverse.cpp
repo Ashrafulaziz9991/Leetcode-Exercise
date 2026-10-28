@@ -23,3 +23,15 @@ public:
         return nums;
     }
 };
+
+// sol 2 :
+class Solution {
+public:
+    vector<int> concatWithReverse(vector<int>& nums) {
+        int n = nums.size() - 1;
+        while(n >= 0)
+            nums.push_back(nums[n--]);
+        
+        return nums;
+    }
+};
