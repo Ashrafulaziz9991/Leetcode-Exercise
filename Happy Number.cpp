@@ -46,7 +46,7 @@ int main()
 
 // problem link : https://leetcode.com/problems/happy-number/
 
-
+// solution 1 :
 class Solution {
 public:
     int digit_count(int num) {
@@ -72,6 +72,27 @@ public:
         return addDigits(sum);
     }
 
+    bool isHappy(int n) {
+        if(addDigits(n) == 1 || addDigits(n) == 7) return true;
+        else return false;
+    }
+};
+
+// solution 2 :
+
+class Solution {
+public:
+    int addDigits(int num) {
+        if (num < 10)
+            return num;
+        int sum = 0;
+        while (num > 0) {
+            int temp = num % 10;
+            sum += pow(temp, 2);
+            num /= 10;
+        }
+        return addDigits(sum);
+    }
     bool isHappy(int n) {
         if(addDigits(n) == 1 || addDigits(n) == 7) return true;
         else return false;
