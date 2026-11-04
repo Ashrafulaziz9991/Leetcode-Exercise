@@ -40,7 +40,7 @@ int main()
 
 
 
-
+// solve 1 :
 class Solution {
 public:
     
@@ -69,5 +69,29 @@ public:
         for (int i = 0; i < k; i++)
             ans.push_back(v[i].second);
         return ans;
+    }
+};
+
+
+
+// solve 2 :
+class Solution {
+public:
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        unordered_map<int, int> freq;
+
+        for (int i : nums)
+            freq[i]++;
+
+        auto cmp = [&](auto a, auto b) {
+            if (freq[a] != freq[b])
+                return freq[a] > freq[b];
+            return a < b;
+        };
+        sort(nums.begin(), nums.end(), cmp);
+        // to remove dulpicates
+        nums.erase(std::unique(nums.begin(), nums.end()), nums.end());
+        nums.resize(k);
+        return nums;
     }
 };
